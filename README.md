@@ -167,7 +167,7 @@ script5_manifesto.sh	date, whoami — standard on all Linux systems
 No third-party libraries or root privileges are required to run any script.
 ________________________________________
 Academic Integrity Statement
-All shell scripts in this repository are original work written by Naman Choudhary. The project report submitted separately on the VITyarthi portal is written entirely in the student's own words. No code has been copied from the internet without attribution and understanding. No AI tool was used to generate the report text.
+All shell scripts in this repository are original work written by Naman Choudhary. The project report submitted separately on the VITyarthi portal is written entirely in the my own words. No code has been copied from the internet without attribution and understanding. No AI tool was used to generate the report text.
 ________________________________________
 References
 •	GNU Project — The Free Software Definition: https://www.gnu.org/philosophy/free-sw.html
