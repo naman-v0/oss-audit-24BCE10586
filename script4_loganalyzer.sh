@@ -1,39 +1,39 @@
 #!/bin/bash
 # Script 4: Log File Analyzer
-# Author: Naman Choudhary 
-# Course: Open Source Software [cite: 632, 633]
-# Usage: ./log_analyzer.sh /var/log/syslog [keyword] [cite: 634]
+# Author: Naman Choudhary
+# Course: Open Source Software
+# Usage: ./script4_loganalyzer.sh /var/log/syslog [keyword]
 
-LOGFILE=$1 # First argument: log file path [cite: 635]
-KEYWORD=${2:-"error"} # Second argument: keyword (default: error) [cite: 636]
-COUNT=0 # Counter variable [cite: 637]
+LOGFILE=$1 # First argument: log file path
+KEYWORD=${2:-"error"} # Second argument: keyword (default: error)
+COUNT=0 # Counter variable
 
 # --- Validate that the log file exists ---
-if [ ! -f "$LOGFILE" ]; then [cite: 640]
-    echo "Error: File \"$LOGFILE\" not found." [cite: 641]
-    echo "Usage: $0 /path/to/logfile [keyword]" [cite: 642]
-    exit 1 [cite: 643]
+if [ ! -f "$LOGFILE" ]; then
+    echo "Error: File \"$LOGFILE\" not found."
+    echo "Usage: $0 /path/to/logfile [keyword]"
+    exit 1
 fi
 
-echo "Analysing: $LOGFILE" [cite: 645]
-echo "Keyword: $KEYWORD" [cite: 646]
+echo "Analysing: $LOGFILE"
+echo "Keyword: $KEYWORD"
 echo "-------------------------------------------------------"
 
 # --- Read log file line by line ---
-while IFS= read -r LINE; do [cite: 649]
-    if echo "$LINE" | grep -iq "$KEYWORD"; then [cite: 650]
+while IFS= read -r LINE; do
+    if echo "$LINE" | grep -iq "$KEYWORD"; then
         COUNT=$((COUNT + 1)) # Increment counter
     fi
-done < "$LOGFILE" [cite: 653]
+done < "$LOGFILE"
 
-echo "Keyword '$KEYWORD' found $COUNT time(s) in $LOGFILE" [cite: 654]
+echo "Keyword '$KEYWORD' found $COUNT time(s) in $LOGFILE"
 echo "-------------------------------------------------------"
 
 # --- Print last 5 matching lines for context ---
-echo "Last 5 matching lines:" [cite: 657]
-grep -i "$KEYWORD" "$LOGFILE" | tail -n 5 [cite: 658]
+echo "Last 5 matching lines:"
+grep -i "$KEYWORD" "$LOGFILE" | tail -n 5
 
 # --- Warn if file is empty ---
-if [ ! -s "$LOGFILE" ]; then [cite: 660]
-    echo "Warning: Log file is empty." [cite: 661]
+if [ ! -s "$LOGFILE" ]; then
+    echo "Warning: Log file is empty."
 fi
